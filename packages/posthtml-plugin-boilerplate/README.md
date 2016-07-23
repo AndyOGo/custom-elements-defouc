@@ -27,13 +27,13 @@ After:
 </svg>
 ```
 
-### Install
+## Install
 
 Describe how big guys can install your plugin.
 
 > npm i posthtml posthtml-plugin
 
-### Usage
+## Usage
 
 Describe how people can use this plugin. Include info about build systems if it's
 necessary.
@@ -49,7 +49,7 @@ posthtml()
     .then(result => fs.writeFileSync('./after.html', result.html));
 ```
 
-### Options
+## Options
 
 Describe all features of your plugin with examples of usage.
 
