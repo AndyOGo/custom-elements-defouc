@@ -7,7 +7,7 @@
 [![Standard Code Style][style]][style-url]
 [![Chat][chat]][chat-badge]
 
-Explain what your plugin do and why thousands of people need it ;)
+Clone this repo and explain what your plugin do and why thousands of people need it ;)
 
 Before:
 ``` html
