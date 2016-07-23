@@ -1,39 +1,43 @@
 {
-  "name": "posthtml-plugin-boilerplate",
+  "name": "posthtml-plugin",
   "version": "1.0.0",
-  "description": "Create new PostHTML plugins",
+  "description": "PostHTML plugin description",
   "keywords": [
     "posthtml",
     "html",
     "posthtml-plugin"
   ],
-  "author": "Jonathan Neal <jonathantneal@hotmail.com>",
-  "license": "CC0-1.0",
-  "repository": "jonathantneal/posthtml-plugin-boilerplate",
-  "homepage": "https://github.com/jonathantneal/posthtml-plugin-boilerplate",
-  "bugs": "https://github.com/jonathantneal/posthtml-plugin-boilerplate/issues",
+  "author": "PostHTML",
+  "license": "MIT",
+  "repository": "posthtml/posthtml-plugin-boilerplate",
+  "homepage": "https://github.com/posthtml/posthtml-plugin-boilerplate",
+  "bugs": "https://github.com/posthtml/posthtml-plugin-boilerplate/issues",
+  "main": "lib/index.js",
   "dependencies": {
-    "posthtml": "^0.8.0"
+    "posthtml": "^0.9.0"
   },
   "devDependencies": {
-    "child-process-promise": "^1.1.0",
+    "ava": "^0.15.2",
+    "conventional-changelog": "^1.1.0",
+    "conventional-changelog-lint": "^1.0.0",
     "eslint": "^1.10.3",
-    "fs-extra": "^0.26.4",
-    "fs-promise": "^0.3.1",
-    "git-user-info": "^1.0.0",
-    "inquirer": "^0.11.1",
-    "jscs": "^2.8.0",
-    "tap-spec": "^4.1.1",
-    "tape": "^4.4.0"
+    "eslint-config-standard": "^5.3.5",
+    "eslint-plugin-promise": "^2.0.0",
+    "eslint-plugin-standard": "^2.0.0",
+    "husky": "^0.11.5",
+    "mversion": "^1.10.1",
+    "standard": "^7.1.2"
   },
   "scripts": {
-    "postinstall": "node lib/install.js",
-    "lint": "eslint . && jscs .",
-    "tape": "tape test.js | tap-spec",
-    "test": "npm run lint && npm run tape"
+    "lint": "eslint .",
+    "test": "ava",
+    "commitmsg": "conventional-changelog-lint -p angular -e",
+    "precommit": "npm run lint",
+    "release-patch": "mversion patch",
+    "release-minor": "mversion minor",
+    "release-major": "mversion major"
   },
   "engines": {
-    "iojs": ">=2.0.0",
-    "node": ">=0.12.0"
+    "node": ">=4"
   }
 }
