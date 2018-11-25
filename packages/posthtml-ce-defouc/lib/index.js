@@ -4,8 +4,8 @@ var parseAttrs = require('posthtml-attrs-parser')
 
 module.exports = function (options) {
   var namespace = options && options.namespace || '[^-]+'
-  var autonomous = options && options.autonomous || true
-  var builtin = options && options.builtin || true
+  var autonomous = (options && 'autonomous' in options) ? options.autonomous : true
+  var builtin = (options && 'builtin' in options) ? options.builtin : true
   var className = options && options['class'] || null
   var style = options && options.style || (className ? null : { visibility: 'hidden' })
   var typeOfStyle = typeof style
