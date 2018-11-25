@@ -75,6 +75,13 @@ test('Extended Builtin Element custom class', (t) => {
   })
 })
 
+// fixed namespace
+test('Only process given namespace', (t) => {
+  return compare(t, 'fixed-namespace', {
+    namespace: 'namespace'
+  })
+})
+
 function compare (t, name, options) {
   const html = readFileSync(path.join(fixtures, `${name}.html`), 'utf8')
   const expected = readFileSync(path.join(fixtures, `${name}.expected.html`), 'utf8')
