@@ -27,7 +27,8 @@
     "posthtml-plugin",
     "posthtml-custom-elements",
     "custom-elements",
-    "fouc"
+    "fouc",
+    "flash-of-unstyled-content"
   ],
   "license": "MIT",
   "main": "lib",

@@ -9,7 +9,7 @@
 [![Standard Code Style][style]][style-url]
 [![Chat][chat]][chat-badge]
 
-Mitigate intrinsic FOUC of Custom Elements V1, by delaying their visibility upon connection.
+Mitigate intrinsic [Flash of Unstyled Content (FOUC)](https://en.wikipedia.org/wiki/Flash_of_unstyled_content) of Custom Elements V1, by delaying their visibility upon connection.
 
 Before:
 ``` html
