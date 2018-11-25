@@ -17,10 +17,19 @@ test('Autonomous Custom Element custom inline style', (t) => {
   })
 })
 
-test('Autonomous Custom Element custom inline style', (t) => {
-  return compare(t, 'autonomous-custom-inline-style', {
+test('Autonomous Custom Element custom hash inline style', (t) => {
+  return compare(t, 'autonomous-custom-hash-inline-style', {
     style: {
       display: 'none'
+    }
+  })
+})
+
+test('Autonomous Custom Element custom hash multi inline style', (t) => {
+  return compare(t, 'autonomous-custom-hash-multi-inline-style', {
+    style: {
+      display: 'none',
+      visibility: 'hidden'
     }
   })
 })
