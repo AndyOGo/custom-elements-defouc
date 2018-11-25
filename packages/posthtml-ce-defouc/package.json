@@ -13,9 +13,6 @@
   },
   "devDependencies": {
     "ava": "^0.15.2",
-    "conventional-changelog": "^1.1.0",
-    "conventional-changelog-lint": "^1.0.0",
-    "husky": "^0.11.5",
     "mversion": "^1.10.1",
     "snazzy": "^4.0.0",
     "standard": "^7.1.2"
@@ -33,9 +30,7 @@
   "main": "lib",
   "repository": "posthtml/posthtml-plugin-boilerplate",
   "scripts": {
-    "commitmsg": "conventional-changelog-lint -p angular -e",
     "lint": "standard | snazzy",
-    "precommit": "npm run lint",
     "release-major": "mversion major",
     "release-minor": "mversion minor",
     "release-patch": "mversion patch",
