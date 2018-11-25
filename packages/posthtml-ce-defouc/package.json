@@ -30,6 +30,7 @@
   "main": "lib",
   "repository": "posthtml/posthtml-plugin-boilerplate",
   "scripts": {
+    "precommit": "npm run lint",
     "lint": "standard | snazzy",
     "release-major": "mversion major",
     "release-minor": "mversion minor",
