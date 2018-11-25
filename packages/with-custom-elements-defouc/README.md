@@ -12,7 +12,7 @@ Add [Custom Elements de-FOUC]() to your build tool:
 
 > npm i with-custom-elements-defouc
 
-**IMPORTANT:** don't forget to use [`posthtml-custom-elements-plugin`](https://github.com/AndyOGo/custom-elements-defouc/tree/master/packages/posthtml-custom-elements-defouc) at your server.
+**IMPORTANT:** don't forget to use [`posthtml-custom-elements-defouc` plugin](https://github.com/AndyOGo/custom-elements-defouc/tree/master/packages/posthtml-custom-elements-defouc) at your server.
 
 ## Usage
 
@@ -79,6 +79,10 @@ export default withCustomElementsDeFouc(CustomElement, {
   className: 'foo'
 })
 ```
+
+### License [MIT](LICENSE)
+
+Proudly brought to you by [`<scale-unlimited>`](http://www.scale-unlimited.com)
 
 [build-badge]: https://img.shields.io/travis/user/repo/master.png?style=flat-square
 [build]: https://travis-ci.org/user/repo

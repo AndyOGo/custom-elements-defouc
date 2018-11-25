@@ -242,9 +242,9 @@ After:
 
 See [PostHTML Guidelines](https://github.com/posthtml/posthtml/tree/master/docs) and [contribution guide](CONTRIBUTING.md).
 
-Proudly brought to you by [`<scale-unlimited>`](http://www.scale-unlimited.com)
-
 ### License [MIT](LICENSE)
+
+Proudly brought to you by [`<scale-unlimited>`](http://www.scale-unlimited.com)
 
 [npm]: https://img.shields.io/npm/v/posthtml.svg
 [npm-url]: https://npmjs.com/package/posthtml
