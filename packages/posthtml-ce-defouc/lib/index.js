@@ -7,7 +7,7 @@ module.exports = function (options) {
   var autonomous = options && options.autonomous || true
   var builtin = options && options.builtin || true
   var className = options && options['class'] || null
-  var style = options && options.style || { visibility: 'hidden' }
+  var style = options && options.style || (className ? null : { visibility: 'hidden' })
   var typeOfStyle = typeof style
   var isStyleString = typeOfStyle === 'string'
   var isStyleObject = typeOfStyle === 'object'
@@ -46,7 +46,7 @@ module.exports = function (options) {
     }
 
     // mitigate by inline style of object source
-    if (isStyleObject) {
+    if (style && isStyleObject) {
       if (attrs.style) {
         for (var key in style) {
           if (style.hasOwnProperty(key)) {
@@ -61,7 +61,7 @@ module.exports = function (options) {
     node.attrs = attrs.compose()
 
     // mitigate by inline style of string source
-    if (isStyleString) {
+    if (style && isStyleString) {
       node.attrs
         ? (node.attrs.style
           ? (node.attrs.style += style)
