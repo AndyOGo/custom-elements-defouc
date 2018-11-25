@@ -18,7 +18,7 @@ describe('withCustomElementsDeFouc', () => {
     expect(div.style.visibility).toBeFalsy()
   })
 
-  it('removes custom inline style upon connection', () => {
+  it('removes custom string inline style upon connection', () => {
     const CustomElementFixtureHoced = withCustomElementsDeFouc(CustomElementFixture, {
       style: 'display'
     })
@@ -30,6 +30,27 @@ describe('withCustomElementsDeFouc', () => {
 
     ce.connectedCallback.call(div)
 
+    expect(div.style.display).toBeFalsy()
+  })
+
+  it('removes custom hash inline style upon connection', () => {
+    const CustomElementFixtureHoced = withCustomElementsDeFouc(CustomElementFixture, {
+      style: {
+        display: null,
+        visibility: null
+      }
+    })
+    const ce = new CustomElementFixtureHoced()
+    const div = document.createElement('div')
+    div.style.visibility = 'hidden'
+    div.style.display = 'none'
+
+    expect(div.style.visibility).toEqual('hidden')
+    expect(div.style.display).toEqual('none')
+
+    ce.connectedCallback.call(div)
+
+    expect(div.style.visibility).toBeFalsy()
     expect(div.style.display).toBeFalsy()
   })
 
