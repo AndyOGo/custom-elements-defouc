@@ -1,12 +1,12 @@
 {
-  "name": "posthtml-ce-defouc",
-  "description": "PostHTML plugin description",
+  "name": "posthtml-custom-elements-defouc",
+  "description": "A PostHTML plugin to mitigate intrinsic FOUC of Custom Elements.",
   "version": "1.0.0",
   "author": "PostHTML",
   "ava": {
     "verbose": "true"
   },
-  "bugs": "https://github.com/posthtml/posthtml-plugin-boilerplate/issues",
+  "bugs": "https://github.com/AndyOGo/custom-elements-defouc/issues",
   "dependencies": {
     "posthtml": "^0.9.0",
     "posthtml-attrs-parser": "^0.1.1"
@@ -20,15 +20,18 @@
   "engines": {
     "node": ">=4"
   },
-  "homepage": "https://github.com/posthtml/posthtml-plugin-boilerplate",
+  "homepage": "https://github.com/AndyOGo/custom-elements-defouc",
   "keywords": [
     "html",
     "posthtml",
-    "posthtml-plugin"
+    "posthtml-plugin",
+    "posthtml-custom-elements",
+    "custom-elements",
+    "fouc"
   ],
   "license": "MIT",
   "main": "lib",
-  "repository": "posthtml/posthtml-plugin-boilerplate",
+  "repository": "AndyOGo/custom-elements-defouc",
   "scripts": {
     "precommit": "npm run lint",
     "lint": "standard | snazzy",
