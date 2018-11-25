@@ -34,6 +34,12 @@ test('Autonomous Custom Element custom hash multi inline style', (t) => {
   })
 })
 
+test('Autonomous Custom Element custom class', (t) => {
+  return compare(t, 'autonomous-custom-class', {
+    class: 'custom-elements-defouc'
+  })
+})
+
 function compare (t, name, options) {
   const html = readFileSync(path.join(fixtures, `${name}.html`), 'utf8')
   const expected = readFileSync(path.join(fixtures, `${name}.expected.html`), 'utf8')
