@@ -1,6 +1,6 @@
 {
   "name": "with-custom-elements-defouc",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A Higher-Order-Class to mitigate FOUC of Custom Elements.",
   "main": "lib/index.js",
   "module": "es/index.js",
