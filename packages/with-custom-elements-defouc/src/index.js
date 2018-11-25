@@ -1,9 +1,8 @@
 const regexTrim = /^\s+|\s{2,}|\s+$/g
 
-export default function withCustomElementsDeFouc(CustomElement, {
-  style = 'visibility',
-  className,
-} = {}) {
+export default function withCustomElementsDeFouc(CustomElement, options) {
+  const className = options && options.className || null
+  const style = options && options.style || (className ? null : 'visibility')
   const typeOfStyle = typeof style
   const isStyleString = typeOfStyle === 'string'
   const isStyleObject = typeOfStyle === 'object'
