@@ -7,31 +7,35 @@
 [![Standard Code Style][style]][style-url]
 [![Chat][chat]][chat-badge]
 
-Clone this repo and explain what your plugin do and why thousands of people need it ;)
+Mitigate intrinsic FOUC of Custom Elements V1, by delaying their visibility upon connection.
 
 Before:
 ``` html
 <html>
   <body>
-    <p class="wow">OMG</p>
+    <custom-element>FOUC autonomous custom element</custom-element>
+    
+    <div is="my-div">FOUC extended built-in element</div>
   </body>
 </html>
 ```
 
 After:
 ``` html
-<svg xmlns="http://www.w3.org/2000/svg">
-  <text class="wow" id="wow_id" fill="#4A83B4" fill-rule="evenodd" font-family="Verdana">
-    OMG
-  </text>
-</svg>
+<html>
+  <body>
+    <custom-element style="visibility: hidden;">FOUC autonomous custom element</custom-element>
+    
+    <div is="my-div" style="visibility: hidden;">FOUC extended built-in element</div>
+  </body>
+</html>
 ```
 
 ## Install
 
 Describe how big guys can install your plugin.
 
-> npm i posthtml posthtml-plugin
+> npm i posthtml posthtml-ce-defouc
 
 ## Usage
 
@@ -41,10 +45,10 @@ necessary.
 ``` js
 const fs = require('fs');
 const posthtml = require('posthtml');
-const posthtmlPlugin = require('posthtml-plugin');
+const posthtmlDeFouc = require('posthtml-ce-defouc');
 
 posthtml()
-    .use(posthtmlPlugin({ /* options */ }))
+    .use(posthtmlDeFouc({ /* options */ }))
     .process(html/*, options */)
     .then(result => fs.writeFileSync('./after.html', result.html));
 ```
