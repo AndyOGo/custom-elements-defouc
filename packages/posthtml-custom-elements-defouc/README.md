@@ -39,6 +39,8 @@ Add [Custom Elements de-FOUC]() to your build tool:
 
 > npm i posthtml posthtml-custom-elements-defouc
 
+**IMPORTANT:** don't forget to use [`with-custom-elements-defouc`](https://github.com/AndyOGo/custom-elements-defouc/tree/master/packages/with-custom-elements-defouc) higher-order-class for your Custom Element definitions.
+
 ## Usage
 
 This plugin comes with sane defaults, just add it to your PostHTML pipeline:
