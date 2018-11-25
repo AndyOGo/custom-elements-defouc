@@ -1,4 +1,6 @@
-# PostHTML Plugin Boilerplate <img align="right" width="220" height="200" title="PostHTML logo" src="http://posthtml.github.io/posthtml/logo.svg">
+<img align="left" width="220" height="200" title="PostHTML logo" src="http://posthtml.github.io/posthtml/logo.svg">
+
+# PostHTML Custom Elements de-FOUC Plugin
 
 [![NPM][npm]][npm-url]
 [![Deps][deps]][deps-url]
@@ -33,55 +35,203 @@ After:
 
 ## Install
 
-Describe how big guys can install your plugin.
+Add [Custom Elements de-FOUC]() to your build tool:
 
-> npm i posthtml posthtml-ce-defouc
+> npm i posthtml posthtml-custom-elements-defouc
 
 ## Usage
 
-Describe how people can use this plugin. Include info about build systems if it's
-necessary.
+This plugin comes with sane defaults, just add it to your PostHTML pipeline:
 
 ``` js
 const fs = require('fs');
 const posthtml = require('posthtml');
-const posthtmlDeFouc = require('posthtml-ce-defouc');
+const posthtmlCustomElementsDeFouc = require('posthtml-custom-elements-defouc');
 
 posthtml()
-    .use(posthtmlDeFouc({ /* options */ }))
+    .use(posthtmlCustomElementsDeFouc({ /* options */ }))
     .process(html/*, options */)
     .then(result => fs.writeFileSync('./after.html', result.html));
 ```
 
 ## Options
 
-Describe all features of your plugin with examples of usage.
+Optionally you can:
+- limit this plugin to a specific `namespace`
+- disable processing `autonomous` Custom Elements or extended `builtin` Elements
+- apply you own custom `style` to mitigate FOUC
+- or use a CSS `class` to mitigate FOUC
 
-### Feature
+### Limit `namespace`
+
 Before:
 ``` html
 <html>
   <body>
-    <p>OMG</p>
+    <custom-element>content</custom-element>
+    <span is="builtin-element">content</span>
+    
+    <namespace-element>content</namespace-element>
+    <span is="namespace-element">content</span>
   </body>
 </html>
 ```
+
 Add option:
 ``` js
 const fs = require('fs');
 const posthtml = require('posthtml');
-const posthtmlPlugin = require('posthtml-plugin');
+const posthtmlCustomElementsDeFouc = require('posthtml-custom-elements-defouc');
 
 posthtml()
-    .use(posthtmlPlugin({ feature: 'wow' }))
+    .use(posthtmlCustomElementsDeFouc({ namespace: 'namespace' }))
     .process(html/*, options */)
     .then(result => fs.writeFileSync('./after.html', result.html));
 ```
+
 After:
 ``` html
 <html>
   <body>
-    <p class="wow">OMG</p>
+    <custom-element>content</custom-element>
+    <span is="builtin-element">content</span>
+    
+    <namespace-element style="visibility: hidden">content</namespace-element>
+    <span is="namespace-element" style="visibility: hidden">content</span>
+  </body>
+</html>
+```
+
+### Disable `autonomous`
+
+Before:
+``` html
+<html>
+  <body>
+    <custom-element>content</custom-element>
+    <span is="builtin-element">content</span>
+  </body>
+</html>
+```
+
+Add option:
+``` js
+const fs = require('fs');
+const posthtml = require('posthtml');
+const posthtmlCustomElementsDeFouc = require('posthtml-custom-elements-defouc');
+
+posthtml()
+    .use(posthtmlCustomElementsDeFouc({ autonomous: false }))
+    .process(html/*, options */)
+    .then(result => fs.writeFileSync('./after.html', result.html));
+```
+
+After:
+``` html
+<html>
+  <body>
+    <custom-element>content</custom-element>
+    <span is="builtin-element" style="visibility: hidden">content</span>
+  </body>
+</html>
+```
+
+### Disable `builtin`
+
+Before:
+``` html
+<html>
+  <body>
+    <custom-element>content</custom-element>
+    <span is="builtin-element">content</span>
+  </body>
+</html>
+```
+
+Add option:
+``` js
+const fs = require('fs');
+const posthtml = require('posthtml');
+const posthtmlCustomElementsDeFouc = require('posthtml-custom-elements-defouc');
+
+posthtml()
+    .use(posthtmlCustomElementsDeFouc({ builtin: false }))
+    .process(html/*, options */)
+    .then(result => fs.writeFileSync('./after.html', result.html));
+```
+
+After:
+``` html
+<html>
+  <body>
+    <custom-element style="visibility: hidden">content</custom-element>
+    <span is="builtin-element">content</span>
+  </body>
+</html>
+```
+
+### Custom `style`
+
+`style` can be either of type **string** or a **style hash**.
+
+Before:
+``` html
+<html>
+  <body>
+    <custom-element>content</custom-element>
+  </body>
+</html>
+```
+
+Add option:
+``` js
+const fs = require('fs');
+const posthtml = require('posthtml');
+const posthtmlCustomElementsDeFouc = require('posthtml-custom-elements-defouc');
+
+posthtml()
+    .use(posthtmlCustomElementsDeFouc({ style: { display: 'none' } }))
+    .process(html/*, options */)
+    .then(result => fs.writeFileSync('./after.html', result.html));
+```
+
+After:
+``` html
+<html>
+  <body>
+    <custom-element style="display: none">content</custom-element>
+  </body>
+</html>
+```
+
+### Custom `class`
+
+Before:
+``` html
+<html>
+  <body>
+    <custom-element>content</custom-element>
+  </body>
+</html>
+```
+
+Add option:
+``` js
+const fs = require('fs');
+const posthtml = require('posthtml');
+const posthtmlCustomElementsDeFouc = require('posthtml-custom-elements-defouc');
+
+posthtml()
+    .use(posthtmlCustomElementsDeFouc({ class: 'foo' }))
+    .process(html/*, options */)
+    .then(result => fs.writeFileSync('./after.html', result.html));
+```
+
+After:
+``` html
+<html>
+  <body>
+    <custom-element class="foo">content</custom-element>
   </body>
 </html>
 ```
