@@ -1,0 +1,43 @@
+{
+  "name": "with-custom-elements-defouc",
+  "version": "1.0.0",
+  "description": "A Higher-Order-Class to mitigate FOUC of Custom Elements.",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "files": [
+    "es",
+    "lib",
+    "umd"
+  ],
+  "scripts": {
+    "build": "nwb build-web-module",
+    "clean": "nwb clean-module",
+    "prepublishOnly": "npm run build",
+    "test": "nwb test",
+    "test:coverage": "nwb test --coverage",
+    "test:watch": "nwb test --server"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "nwb": "0.23.x"
+  },
+  "author": "Andreas Deuschlinger",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndyOGo/custom-elements-defouc.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AndyOGo/custom-elements-defouc/issues"
+  },
+  "homepage": "https://github.com/AndyOGo/custom-elements-defouc#readme",
+  "keywords": [
+    "html",
+    "posthtml-custom-elements-defouc",
+    "custom-elements",
+    "fouc",
+    "flash-of-unstyled-content",
+    "hoc",
+    "higher-order-class"
+  ]
+}

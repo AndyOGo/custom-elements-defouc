@@ -37,7 +37,7 @@ test('Autonomous Custom Element custom hash multi inline style', (t) => {
 
 test('Autonomous Custom Element custom class', (t) => {
   return compare(t, 'autonomous-custom-class', {
-    class: 'custom-elements-defouc'
+    className: 'custom-elements-defouc'
   })
 })
 
@@ -71,7 +71,7 @@ test('Extended Builtin Element custom hash multi inline style', (t) => {
 
 test('Extended Builtin Element custom class', (t) => {
   return compare(t, 'builtin-custom-class', {
-    class: 'custom-elements-defouc'
+    className: 'custom-elements-defouc'
   })
 })
 
