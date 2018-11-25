@@ -76,9 +76,22 @@ test('Extended Builtin Element custom class', (t) => {
 })
 
 // fixed namespace
-test('Only process given namespace', (t) => {
+test('Only by namespace', (t) => {
   return compare(t, 'fixed-namespace', {
     namespace: 'namespace'
+  })
+})
+
+// only autonomous or builtin
+test('Only Autonomous Custom Element', (t) => {
+  return compare(t, 'only-autonomous', {
+    builtin: false
+  })
+})
+
+test('Only Extended Builtin Element', (t) => {
+  return compare(t, 'only-builtin', {
+    autonomous: false
   })
 })
 
