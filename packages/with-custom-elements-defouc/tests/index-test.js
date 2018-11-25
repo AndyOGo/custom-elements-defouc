@@ -54,6 +54,27 @@ describe('withCustomElementsDeFouc', () => {
     expect(div.style.display).toBeFalsy()
   })
 
+  it('replaces custom hash inline style upon connection', () => {
+    const CustomElementFixtureHoced = withCustomElementsDeFouc(CustomElementFixture, {
+      style: {
+        display: 'block',
+        visibility: 'visible'
+      }
+    })
+    const ce = new CustomElementFixtureHoced()
+    const div = document.createElement('div')
+    div.style.visibility = 'hidden'
+    div.style.display = 'none'
+
+    expect(div.style.visibility).toEqual('hidden')
+    expect(div.style.display).toEqual('none')
+
+    ce.connectedCallback.call(div)
+
+    expect(div.style.visibility).toEqual('visible')
+    expect(div.style.display).toEqual('block')
+  })
+
   it('removes class name upon connection', () => {
     const CustomElementFixtureHoced = withCustomElementsDeFouc(CustomElementFixture, {
       className: 'foo'
