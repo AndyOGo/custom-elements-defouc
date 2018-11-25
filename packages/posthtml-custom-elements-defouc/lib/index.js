@@ -6,7 +6,7 @@ module.exports = function (options) {
   var namespace = options && options.namespace || '[^-]+'
   var autonomous = (options && 'autonomous' in options) ? options.autonomous : true
   var builtin = (options && 'builtin' in options) ? options.builtin : true
-  var className = options && options['class'] || null
+  var className = options && options.className || null
   var style = options && options.style || (className ? null : { visibility: 'hidden' })
   var typeOfStyle = typeof style
   var isStyleString = typeOfStyle === 'string'

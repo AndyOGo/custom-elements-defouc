@@ -62,7 +62,7 @@ Optionally you can:
 - limit this plugin to a specific `namespace`
 - disable processing `autonomous` Custom Elements or extended `builtin` Elements
 - apply you own custom `style` to mitigate FOUC
-- or use a CSS `class` to mitigate FOUC
+- or use a CSS `className` to mitigate FOUC
 
 ### Limit `namespace`
 
@@ -206,7 +206,7 @@ After:
 </html>
 ```
 
-### Custom `class`
+### Custom `className`
 
 Before:
 ``` html
@@ -224,7 +224,7 @@ const posthtml = require('posthtml');
 const posthtmlCustomElementsDeFouc = require('posthtml-custom-elements-defouc');
 
 posthtml()
-    .use(posthtmlCustomElementsDeFouc({ class: 'foo' }))
+    .use(posthtmlCustomElementsDeFouc({ className: 'foo' }))
     .process(html/*, options */)
     .then(result => fs.writeFileSync('./after.html', result.html));
 ```
