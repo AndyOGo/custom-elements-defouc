@@ -35,7 +35,7 @@ After:
 
 ## Install
 
-Add [Custom Elements de-FOUC]() to your build tool:
+Add [PostHTML Custom Elements de-FOUC plugin]() to your build tool:
 
 > npm i posthtml posthtml-custom-elements-defouc
 
@@ -61,7 +61,7 @@ posthtml()
 Optionally you can:
 - limit this plugin to a specific `namespace`
 - disable processing `autonomous` Custom Elements or extended `builtin` Elements
-- apply you own custom `style` to mitigate FOUC
+- apply your own custom `style` to mitigate FOUC
 - or use a CSS `className` to mitigate FOUC
 
 ### Limit `namespace`

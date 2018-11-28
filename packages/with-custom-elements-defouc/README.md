@@ -8,7 +8,7 @@ Mitigate intrinsic [Flash of Unstyled Content (FOUC)](https://en.wikipedia.org/w
 
 ## Install
 
-Add [Custom Elements de-FOUC]() to your build tool:
+Add [Custom Elements de-FOUC]() higher-order-class to your Custom Elements:
 
 > npm i with-custom-elements-defouc
 
