@@ -41,8 +41,5 @@
     "release-patch": "mversion patch",
     "test": "npm run lint && ava"
   },
-  "gitHead": "a1a7ccbdb6389a24ff15df2b56a21684de868aeb",
-  "publishConfig": {
-    "access": "public"
-  }
+  "gitHead": "a1a7ccbdb6389a24ff15df2b56a21684de868aeb"
 }
