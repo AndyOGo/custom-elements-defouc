@@ -8,11 +8,25 @@ Mitigate intrinsic [Flash of Unstyled Content (FOUC)](https://en.wikipedia.org/w
 
 ## Install
 
-Add [Custom Elements de-FOUC]() higher-order-class to your Custom Elements:
+Add [Custom Elements de-FOUC](#usage) higher-order-class to your Custom Elements:
 
 > npm i with-custom-elements-defouc
 
 **IMPORTANT:** don't forget to use [`posthtml-custom-elements-defouc` plugin](https://github.com/AndyOGo/custom-elements-defouc/tree/master/packages/posthtml-custom-elements-defouc) at your server.
+
+**Note:** Depending at your targeted audience the [CSS `:defined` pseudo-class](https://html.spec.whatwg.org/multipage/semantics-other.html#selector-defined) may is a better solution.
+Of course if you need to support any user with [non-capable browsers](https://developer.mozilla.org/en-US/docs/Web/CSS/:defined#Browser_compatibility) `:defined` won't help you there.
+
+You could handle all undefined custom elements FOUC just by these lines defined within your `<head>` section:
+
+```css
+:not(:defined) {
+    display: none;
+    // or
+    visibility: hidden;
+    // or whatever you came up with
+}
+```
 
 ## Usage
 
@@ -35,6 +49,7 @@ export default withCustomElementsDeFouc(CustomElement/*, { options } */)
 Remove inline `style` either by type **string** or a **style hash** - truthy hash values will be used as replacement.
 
 **String:**
+
 ```js
 import withCustomElementsDeFouc from 'with-custom-elements-defouc'
 
