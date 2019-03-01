@@ -12,22 +12,24 @@
 Mitigate intrinsic [Flash of Unstyled Content (FOUC)](https://en.wikipedia.org/wiki/Flash_of_unstyled_content) of Custom Elements V1, by delaying their visibility upon connection.
 
 Before:
+
 ``` html
 <html>
   <body>
     <custom-element>FOUC autonomous custom element</custom-element>
-    
+
     <div is="my-div">FOUC extended built-in element</div>
   </body>
 </html>
 ```
 
 After:
+
 ``` html
 <html>
   <body>
     <custom-element style="visibility: hidden;">FOUC autonomous custom element</custom-element>
-    
+
     <div is="my-div" style="visibility: hidden;">FOUC extended built-in element</div>
   </body>
 </html>
