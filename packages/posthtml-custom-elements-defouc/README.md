@@ -41,6 +41,20 @@ Add [PostHTML Custom Elements de-FOUC plugin]() to your build tool:
 
 **IMPORTANT:** don't forget to use [`with-custom-elements-defouc`](https://github.com/AndyOGo/custom-elements-defouc/tree/master/packages/with-custom-elements-defouc) higher-order-class for your Custom Element definitions.
 
+**Note:** Depending at your targeted audience the [CSS `:defined` pseudo-class](https://html.spec.whatwg.org/multipage/semantics-other.html#selector-defined) may is a better solution.
+Of course if you need to support any user with [non-capable browsers](https://developer.mozilla.org/en-US/docs/Web/CSS/:defined#Browser_compatibility) `:defined` won't help you there.
+
+You could handle all undefined custom elements FOUC just by these lines defined within your `<head>` section:
+
+```css
+:not(:defined) {
+    display: none;
+    // or
+    visibility: hidden;
+    // or whatever you came up with
+}
+```
+
 ## Usage
 
 This plugin comes with sane defaults, just add it to your PostHTML pipeline:
@@ -59,6 +73,7 @@ posthtml()
 ## Options
 
 Optionally you can:
+
 - limit this plugin to a specific `namespace`
 - disable processing `autonomous` Custom Elements or extended `builtin` Elements
 - apply your own custom `style` to mitigate FOUC
@@ -67,12 +82,13 @@ Optionally you can:
 ### Limit `namespace`
 
 Before:
+
 ``` html
 <html>
   <body>
     <custom-element>content</custom-element>
     <span is="builtin-element">content</span>
-    
+
     <namespace-element>content</namespace-element>
     <span is="namespace-element">content</span>
   </body>
@@ -80,6 +96,7 @@ Before:
 ```
 
 Add option:
+
 ``` js
 const fs = require('fs');
 const posthtml = require('posthtml');
@@ -92,12 +109,13 @@ posthtml()
 ```
 
 After:
+
 ``` html
 <html>
   <body>
     <custom-element>content</custom-element>
     <span is="builtin-element">content</span>
-    
+
     <namespace-element style="visibility: hidden">content</namespace-element>
     <span is="namespace-element" style="visibility: hidden">content</span>
   </body>
@@ -107,6 +125,7 @@ After:
 ### Disable `autonomous`
 
 Before:
+
 ``` html
 <html>
   <body>
@@ -117,6 +136,7 @@ Before:
 ```
 
 Add option:
+
 ``` js
 const fs = require('fs');
 const posthtml = require('posthtml');
@@ -129,6 +149,7 @@ posthtml()
 ```
 
 After:
+
 ``` html
 <html>
   <body>
@@ -141,6 +162,7 @@ After:
 ### Disable `builtin`
 
 Before:
+
 ``` html
 <html>
   <body>
@@ -151,6 +173,7 @@ Before:
 ```
 
 Add option:
+
 ``` js
 const fs = require('fs');
 const posthtml = require('posthtml');
@@ -163,6 +186,7 @@ posthtml()
 ```
 
 After:
+
 ``` html
 <html>
   <body>
@@ -177,6 +201,7 @@ After:
 `style` can be either of type **string** or a **style hash**.
 
 Before:
+
 ``` html
 <html>
   <body>
@@ -186,6 +211,7 @@ Before:
 ```
 
 Add option:
+
 ``` js
 const fs = require('fs');
 const posthtml = require('posthtml');
@@ -198,6 +224,7 @@ posthtml()
 ```
 
 After:
+
 ``` html
 <html>
   <body>
@@ -209,6 +236,7 @@ After:
 ### Custom `className`
 
 Before:
+
 ``` html
 <html>
   <body>
@@ -218,6 +246,7 @@ Before:
 ```
 
 Add option:
+
 ``` js
 const fs = require('fs');
 const posthtml = require('posthtml');
@@ -230,6 +259,7 @@ posthtml()
 ```
 
 After:
+
 ``` html
 <html>
   <body>
@@ -260,7 +290,6 @@ Proudly brought to you by [`<scale-unlimited>`](http://www.scale-unlimited.com)
 
 [cover]: https://coveralls.io/repos/posthtml/posthtml/badge.svg?branch=master
 [cover-badge]: https://coveralls.io/r/posthtml/posthtml?branch=master
-
 
 [chat]: https://badges.gitter.im/posthtml/posthtml.svg
 [chat-badge]: https://gitter.im/posthtml/posthtml?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge"
