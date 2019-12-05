@@ -15,7 +15,7 @@
     "ava": "^2.4.0",
     "mversion": "^1.10.1",
     "snazzy": "^4.0.0",
-    "standard": "^7.1.2"
+    "standard": "^14.3.1"
   },
   "engines": {
     "node": ">=4"
