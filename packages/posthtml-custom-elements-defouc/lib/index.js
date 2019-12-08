@@ -1,13 +1,14 @@
 'use strict'
 
 var parseAttrs = require('posthtml-attrs-parser')
+var hasOwnProperty = Object.prototype.hasOwnProperty
 
 module.exports = function (options) {
-  var namespace = options && options.namespace || '[^-]+'
+  var namespace = (options && options.namespace) || '[^-]+'
   var autonomous = (options && 'autonomous' in options) ? options.autonomous : true
   var builtin = (options && 'builtin' in options) ? options.builtin : true
-  var className = options && options.className || null
-  var style = options && options.style || (className ? null : { visibility: 'hidden' })
+  var className = (options && options.className) || null
+  var style = (options && options.style) || (className ? null : { visibility: 'hidden' })
   var typeOfStyle = typeof style
   var isStyleString = typeOfStyle === 'string'
   var isStyleObject = typeOfStyle === 'object'
@@ -49,7 +50,7 @@ module.exports = function (options) {
     if (style && isStyleObject) {
       if (attrs.style) {
         for (var key in style) {
-          if (style.hasOwnProperty(key)) {
+          if (hasOwnProperty.call(style, key)) {
             attrs.style[key] = style[key]
           }
         }
