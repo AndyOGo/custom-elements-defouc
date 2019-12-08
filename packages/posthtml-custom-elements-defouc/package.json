@@ -36,6 +36,7 @@
   "scripts": {
     "precommit": "npm run lint",
     "lint": "standard | snazzy",
+    "lint:fix": "standard --fix | snazzy",
     "release-major": "mversion major",
     "release-minor": "mversion minor",
     "release-patch": "mversion patch",
