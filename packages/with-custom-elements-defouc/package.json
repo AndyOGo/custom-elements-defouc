@@ -18,7 +18,7 @@
     "test:watch": "nwb test --server"
   },
   "devDependencies": {
-    "nwb": "0.23.x"
+    "nwb": "0.25.x"
   },
   "author": "Andreas Deuschlinger",
   "license": "MIT",
